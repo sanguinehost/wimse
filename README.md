@@ -5,7 +5,7 @@
 ## Status
 
 🚧 **Placeholder.** Reserved for the upcoming extraction from
-[`Tasmanian-Cloud/ferrousgate`](https://github.com/Tasmanian-Cloud/ferrousgate).
+[`sanguinehost/ferrousgate`](https://github.com/sanguinehost/ferrousgate).
 
 | Field | Value |
 |---|---|
@@ -27,7 +27,7 @@ Mechanical, once iter-13 / iter-13b land on ferrousgate. For
 non-identity-touching crates this can run any time.
 
 ```bash
-# in a clean clone of Tasmanian-Cloud/ferrousgate:
+# in a clean clone of sanguinehost/ferrousgate:
 git filter-repo --subdirectory-filter (new — not yet implemented) --tag-rename ':wimse-pre-extract-'
 git remote add origin git@github.com:sanguinehost/wimse.git
 git push origin main
@@ -35,6 +35,6 @@ git push origin main
 
 ## Related repos
 
-- [`Tasmanian-Cloud/ferrousgate`](https://github.com/Tasmanian-Cloud/ferrousgate) — current home; will switch to git-dep on this repo post-extraction
+- [`sanguinehost/ferrousgate`](https://github.com/sanguinehost/ferrousgate) — current home; will switch to git-dep on this repo post-extraction
 - [`sanguinehost/aim`](https://github.com/sanguinehost/aim) — agent IdP
 - [`sanguinehost/agent-identity-resolver`](https://github.com/sanguinehost/agent-identity-resolver), [`agent-classify`](https://github.com/sanguinehost/agent-classify), [`agent-memory`](https://github.com/sanguinehost/agent-memory), [`authzed-rs`](https://github.com/sanguinehost/authzed-rs) — sibling extractions
