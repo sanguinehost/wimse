@@ -1,0 +1,23 @@
+[package]
+name = "spiffe-id"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Typed, no_std-friendly parser/validator for SPIFFE-ID URIs and WIMSE workload identifiers"
+repository = "https://github.com/sanguinehost/wimse"
+readme = "README.md"
+keywords = ["spiffe", "wimse", "workload-identity", "no_std"]
+categories = ["parser-implementations", "no-std"]
+
+[features]
+default = []
+serde = ["dep:serde"]
+
+[dependencies]
+serde = { version = "1", optional = true, default-features = false, features = ["alloc", "derive"] }
+
+[dev-dependencies]
+serde_json = { version = "1", default-features = false, features = ["alloc"] }
+
+[lints.rust]
+unsafe_code = "forbid"

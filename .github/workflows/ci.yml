@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-D warnings"
+
+jobs:
+  build-and-test:
+    name: build / test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust (stable, with wasm32 target)
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+          targets: wasm32-unknown-unknown
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: cargo check (default features)
+        run: cargo check
+
+      - name: cargo check (no-default-features — no_std build)
+        run: cargo check --no-default-features
+
+      - name: cargo check (wasm32-unknown-unknown)
+        run: cargo check --target wasm32-unknown-unknown
+
+      - name: cargo check (serde feature)
+        run: cargo check --features serde
+
+      - name: cargo test (serde feature)
+        run: cargo test --features serde
+
+      - name: cargo clippy
+        run: cargo clippy --all-targets --features serde -- -D warnings
+
+      - name: cargo fmt --check
+        run: cargo fmt --check
