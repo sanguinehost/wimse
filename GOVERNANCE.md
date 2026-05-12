@@ -9,7 +9,7 @@ small and the scope is narrow.
 
 - **Maintainers** — people with write access to this repo, who review and merge PRs, cut releases,
   and run security incidents. Currently: the Sanguine Host / TWN Systems engineering team, with
-  `@clayatownsend` as the lead maintainer / default decision-tiebreaker.
+  `@yokoszn` (Clay Townsend) as the lead maintainer / default decision-tiebreaker.
 - **Contributors** — anyone who's had a PR merged. (Thank you.)
 - **Code owners** — listed in [`.github/CODEOWNERS`](.github/CODEOWNERS); a PR needs review from a
   code owner before it lands.
