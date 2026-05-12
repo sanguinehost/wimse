@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Report a security vulnerability
+    url: https://github.com/sanguinehost/wimse/security/advisories/new
+    about: >-
+      Do NOT open a public issue for anything that could be a vulnerability. Use GitHub's private
+      vulnerability reporting (this link), or email security@twn.systems. See SECURITY.md.
+  - name: 💬 Question / discussion
+    url: https://github.com/sanguinehost/wimse/discussions
+    about: >-
+      Usage questions, design discussion, "should the crate also do X?" — open a Discussion rather
+      than an issue. (Scope changes need a conversation before a PR — see ROADMAP.md.)
+  - name: 📦 The full SPIFFE stack
+    url: https://crates.io/crates/spiffe
+    about: >-
+      Need SVID documents (X.509-SVID / JWT-SVID), trust bundles, federation, or the SPIFFE Workload
+      API? Those are out of scope for `spiffe-id` (see ROADMAP.md) — the `spiffe` crate has them.

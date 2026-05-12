@@ -1,0 +1,30 @@
+# Dependabot for sanguinehost/wimse (the `spiffe-id` crate).
+#
+# The crate has ZERO runtime dependencies and one optional one (`serde`), plus a `serde_json`
+# dev-dependency — so the cargo updates here are light. The thing that genuinely moves is the
+# GitHub Actions versions in the CI workflow; keep those current.
+version: 2
+updates:
+  # GitHub Actions used by .github/workflows/*.yml — keep them on supported majors.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "ci"
+    labels: ["dependencies", "ci"]
+    open-pull-requests-limit: 5
+
+  # The crate's deps: `serde` (optional) and the `serde_json` dev-dep. Group the patch/minor bumps
+  # so they don't spam; majors come as their own PR (review the changelog).
+  - package-ecosystem: cargo
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "chore"
+    labels: ["dependencies"]
+    open-pull-requests-limit: 5
+    groups:
+      cargo-minor-patch:
+        update-types: ["minor", "patch"]

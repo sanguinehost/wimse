@@ -1,0 +1,52 @@
+name: ✨ Feature / change request
+description: A new accessor, an ergonomics improvement, a small behaviour tweak.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        `spiffe-id` is **deliberately small** — a strict, `no_std`, zero-dep parser for SPIFFE/WIMSE
+        workload-identity *URIs*. Before you file: please skim
+        [ROADMAP.md](https://github.com/sanguinehost/wimse/blob/main/ROADMAP.md), especially the
+        **"won't be in this crate"** list — things like SVID documents, trust bundles, the Workload
+        API, IDNA, or anything I/O/async/time/crypto are out of scope, and a request (or PR) for
+        those will be declined with thanks. Small, additive things — a new accessor, a trait impl, a
+        `TrustDomain` newtype — are very much on the table if they pull their weight.
+
+        For anything that would change the *scope*, a
+        [Discussion](https://github.com/sanguinehost/wimse/discussions) is the better starting
+        point than an issue.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's the problem / what do you need?
+      description: >-
+        What are you trying to do that the crate makes awkward or impossible today? Concrete use
+        case, please — "I'm parsing X and I want to do Y, but…".
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: >-
+        What would you add/change? Sketch the API (a function signature, a type) if you can. Is it
+        additive (a minor bump) or breaking?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Doing it in your own code? A different shape? Why aren't those good enough? (optional)
+    validations:
+      required: false
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This stays within the crate's scope (it's about parsing/validating/representing SPIFFE/WIMSE *URIs* — not SVID documents, trust bundles, the Workload API, or anything I/O/async/time/crypto). See ROADMAP.md.
+          required: true
+        - label: It keeps the crate `no_std` + `alloc`, `#![forbid(unsafe_code)]`, and zero new runtime dependencies — or I've explained why an exception is warranted.
+          required: true

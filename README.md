@@ -48,7 +48,27 @@ assert_eq!(id.as_uri(), "spiffe://twn.network/ns/prod/sa/agent-orchestrator");
 
 ID-URI parsing only. SVID document parsing (X.509-SVID, JWT-SVID), trust-domain
 bundle management, the SPIFFE Workload API, and federation policy are all out of
-scope (later iterations / other crates).
+scope (other crates — see [`ROADMAP.md`](ROADMAP.md), and [`spiffe`](https://crates.io/crates/spiffe)
+for the full stack). **And — important — a valid SPIFFE ID is not authentication
+or authorization**; the trust domain in an ID is whatever string was in the input,
+not a verified issuer. See the [threat model](docs/THREAT-MODEL.md).
+
+## Documentation
+
+The API reference is the rustdoc ([docs.rs/spiffe-id](https://docs.rs/spiffe-id)). Around it:
+
+- [`FEATURES.md`](FEATURES.md) — what it does: the validation rules, the accessors, the error type, the `serde` feature, the properties.
+- [`docs/THREAT-MODEL.md`](docs/THREAT-MODEL.md) — what it defends against, what it doesn't, what's on you — for service operators, dependent-crate authors, and maintainers. **Read before shipping.**
+- [`docs/INTEGRATION.md`](docs/INTEGRATION.md) — taking the dependency, the parse-at-the-boundary pattern, wasm/embedded, where it fits in a SPIFFE pipeline, the supply-chain story.
+- [`docs/IMPLEMENTATION.md`](docs/IMPLEMENTATION.md) — how it works inside: the parse pipeline, the canonical-form invariant, the `no_std` strategy, the test strategy.
+- [`ROADMAP.md`](ROADMAP.md) — what's done, what's next, and what's deliberately out of scope (and why).
+- [`docs/README.md`](docs/README.md) — the index of all of the above.
+
+### Project & security
+
+- [`SECURITY.md`](SECURITY.md) — report a vulnerability privately (**`security@twn.systems`** or GitHub private vulnerability reporting); scope, supported versions, disclosure process, safe harbour.
+- [`docs/playbooks/`](docs/playbooks/) — maintainer runbooks: the [GHSA / vulnerability-response playbook](docs/playbooks/vulnerability-response.md) and the [maintainer-compromise playbook](docs/playbooks/maintainer-compromise.md).
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) · [`GOVERNANCE.md`](GOVERNANCE.md) · [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Related repos
 

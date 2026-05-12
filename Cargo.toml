@@ -2,6 +2,8 @@
 name = "spiffe-id"
 version = "0.1.0"
 edition = "2021"
+# MSRV: the crate uses `core::error::Error` (stable since 1.81) and the `[lints]` table (Cargo 1.74).
+rust-version = "1.81"
 license = "MIT"
 description = "Typed, no_std-friendly parser/validator for SPIFFE-ID URIs and WIMSE workload identifiers"
 repository = "https://github.com/sanguinehost/wimse"

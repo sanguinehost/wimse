@@ -39,8 +39,36 @@ jobs:
       - name: cargo test (serde feature)
         run: cargo test --features serde
 
+      - name: cargo test (default features)
+        run: cargo test
+
+      - name: cargo test (no-default-features)
+        run: cargo test --no-default-features
+
       - name: cargo clippy
         run: cargo clippy --all-targets --features serde -- -D warnings
 
       - name: cargo fmt --check
         run: cargo fmt --check
+
+  docs:
+    name: rustdoc
+    runs-on: ubuntu-latest
+    env:
+      RUSTDOCFLAGS: "-D warnings"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: cargo doc (all features, no deps)
+        run: cargo doc --all-features --no-deps
+
+  msrv:
+    name: msrv (1.81)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.81
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo build --all-features
+      - run: cargo test --all-features

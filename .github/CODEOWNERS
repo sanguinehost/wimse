@@ -1,0 +1,21 @@
+# Code owners for sanguinehost/wimse (the `spiffe-id` crate).
+# Every PR needs a review from a code owner before it can be merged (when "Require review from Code
+# Owners" is on in the branch-protection rules for `main`).
+#
+# Replace the handle below with the actual maintainer GitHub handle(s) — or a team
+# (e.g. `@sanguinehost/maintainers`) once one exists. Keep this in sync with GOVERNANCE.md.
+
+*                       @clayatownsend
+
+# The crate itself + the spec-tracking tests — changes here are semver- and security-relevant.
+/src/                   @clayatownsend
+/tests/                 @clayatownsend
+/Cargo.toml             @clayatownsend
+
+# Security-sensitive process docs — changes here need maintainer eyes.
+/SECURITY.md            @clayatownsend
+/docs/playbooks/        @clayatownsend
+/docs/THREAT-MODEL.md   @clayatownsend
+
+# CI / supply-chain config — changes here can affect what gets built and published.
+/.github/               @clayatownsend
