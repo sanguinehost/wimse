@@ -1,7 +1,6 @@
 # wimse — `spiffe-id`
 
 **SPIFFE / WIMSE URI parsing library. Zero runtime deps, `no_std`-friendly.
-Consumed by AIM and the agent-identity-resolver.**
 
 This repo hosts the `spiffe-id` crate: a typed `SpiffeId` newtype that parses
 and validates [SPIFFE-ID](https://github.com/spiffe/spiffe/blob/main/standards/SPIFFE-ID.md)
@@ -12,8 +11,6 @@ grammar (`ns/<namespace>/sa/<service-account>[/<extra>...]`).
 | Field | Value |
 |---|---|
 | Crate | `spiffe-id` |
-| Spec | `docs/specs/iter-18-spiffe-id.md` in [`sanguinehost/ferrousgate`](https://github.com/sanguinehost/ferrousgate) |
-| Iteration | iter-18 |
 | License | MIT |
 | `no_std` | yes — `core` + `alloc` only, no I/O, no crypto (so `aim-wasm` can use it) |
 
