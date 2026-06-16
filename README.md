@@ -69,9 +69,3 @@ The API reference is the rustdoc ([docs.rs/spiffe-id](https://docs.rs/spiffe-id)
 - [`SECURITY.md`](SECURITY.md) — report a vulnerability privately (**`security@twn.systems`** or GitHub private vulnerability reporting); scope, supported versions, disclosure process, safe harbour.
 - [`docs/playbooks/`](docs/playbooks/) — maintainer runbooks: the [GHSA / vulnerability-response playbook](docs/playbooks/vulnerability-response.md) and the [maintainer-compromise playbook](docs/playbooks/maintainer-compromise.md).
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) · [`GOVERNANCE.md`](GOVERNANCE.md) · [`CHANGELOG.md`](CHANGELOG.md).
-
-## Related repos
-
-- [`sanguinehost/ferrousgate`](https://github.com/sanguinehost/ferrousgate) — MCP gateway; home of the iter-18 spec
-- [`sanguinehost/aim`](https://github.com/sanguinehost/aim) — agent IdP (consumes this crate)
-- [`sanguinehost/agent-identity-resolver`](https://github.com/sanguinehost/agent-identity-resolver) — identity resolver (iter-18b)
